@@ -6,48 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Welcome to Nashville!</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #20B2AA;">
-        <a class="navbar-brand" href="#" id="welcome">Welcome to Nashville</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" id="search-concerts-link">Concerts <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" id="view-itineraries-link">View Itineraries</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="search-parks-link">Parks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="search-restaurants-link">Restaurants</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" id="search-arts-link">Arts</a>
-                </li>
-
-            </ul>
-            <form class="form-inline my-2 my-lg-0" id="navbar-search">
-                <div id="search-drop">
-                    
-                </div>
-                <div id="search-input">
-                </div>
-            </form>
+    <div class="ui pointing menu">
+        <div class="item">
+            <a class="" href="#" id="welcome">Welcome to Nashville</a>
         </div>
-    </nav>
+        <li class="item active">
+            <a class="nav-link" href="#" id="view-itineraries-link">View Itineraries</a>
+        </li>
+        <div class="right menu">
+            <!-- id="search-drop" -->
+            <a class="browse item">
+                Browse
+                <i class="dropdown icon"></i>
+            </a>
+            <div class="ui fluid popup top right transition hidden"
+                style="top: 100px; left: 100px; bottom: 100px; right: 100px; width: 100px;">
+                <div class="ui four column relaxed divided grid">
+                    <div class="column">
+                        <h4 class="ui header">Concerts</h4>
+                        <div class="ui link list">
+                            <a class="item" id="search-concerts-link">Search All</a>
+                            <a class="item">Linen</a>
+                            <a class="item">Cotton</a>
+                            <a class="item">Viscose</a>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h4 class="ui header">Parks</h4>
+                        <div class="ui link list">
+                            <a class="item"id="search-parks-link" >Small</a>
+                            <a class="item">Medium</a>
+                            <a class="item">Large</a>
+                            <a class="item">Plus Sizes</a>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h4 class="ui header">Restaurants</h4>
+                        <div class="ui link list">
+                            <a class="item" id="search-restaurants-link">Neutrals</a>
+                            <a class="item">Brights</a>
+                            <a class="item">Pastels</a>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h4 class="ui header">Arts</h4>
+                        <div class="ui link list">
+                            <a class="item" id="search-arts-link">Knitwear</a>
+                            <a class="item">Outerwear</a>
+                            <a class="item">Pants</a>
+                            <a class="item">Shoes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <form class="form-inline my-2 my-lg-0" id="navbar-search">
+
+                    <div class="ui transparent icon input" id="search-input">
+                        <input type="text" placeholder="Search...">
+                        <i class="search link icon"></i>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui segment">
+        <p></p>
+    </div>
+    <div class="ui basic modal">
+        <div class="ui icon header">
+            <i class="archive icon"></i>
+            Archive Old Messages
+        </div>
+        <div class="content">
+            <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+        </div>
+        <div class="actions">
+            <div class="ui red basic cancel inverted button">
+                <i class="remove icon"></i>
+                No
+            </div>
+            <div class="ui green ok inverted button">
+                <i class="checkmark icon"></i>
+                Yes
+            </div>
+        </div>
+    </div>
     <section id="search">
         <div id="formSearch">
             <div id="search-parks">
@@ -74,7 +124,7 @@
     <div id="search-header">
 
     </div>
-    
+
     <h2 id="search-result-title">Search Results</h2>
 
     <section id="search-results">
@@ -102,16 +152,14 @@
 
     </section>
     <footer></footer>
-    <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+    <!-- Semantic UI -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+
+    <!-- Api Keys -->
     <script src="../api/apiKeys.js"></script>
 
     <!--Restaurant API Scripts -->
