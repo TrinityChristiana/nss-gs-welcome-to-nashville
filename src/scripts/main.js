@@ -16,8 +16,8 @@ restaurantJS.runIt();
 $('.menu .browse')
     .popup({
         inline: true,
-        // hoverable: true,
-        on: "click",
+        hoverable: true,
+        // on: "click",
         position: 'bottom right',
         delay: {
             show: 300,
