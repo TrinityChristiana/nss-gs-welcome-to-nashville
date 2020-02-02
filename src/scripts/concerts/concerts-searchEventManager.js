@@ -1,6 +1,5 @@
 import APIManager from "../api-manager.js";
 import concertsDOMManager from "./concerts-searchResultsDomManager.js"
-import 
 let searchText;
 let genreId;
 const concertEventManager = {
