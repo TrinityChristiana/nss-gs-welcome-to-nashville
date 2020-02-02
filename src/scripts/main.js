@@ -18,7 +18,7 @@ $('.menu .browse')
     .popup({
         inline: true,
         hoverable: true,
-        // on: "click",
+        on: "click",
         position: 'bottom right',
         delay: {
             show: 300,

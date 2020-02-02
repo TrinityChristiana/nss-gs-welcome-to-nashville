@@ -59,6 +59,12 @@ const eventManager = {
             const inputData = inputManager.runIt(options);
             const searchText = inputData.input;
             const category = inputData.category;
+            let loader = `
+                <div class="ui active inverted dimmer">
+                <div class="ui text loader">Loading</div>
+              </div>
+                `;
+                document.getElementById('search-results').innerHTML = loader;
             apiManager.searchConcert(inputData.id, category, "&genreId=", 0)
                 .then(data => {
                     if ("_embedded" in data) {

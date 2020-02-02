@@ -1,3 +1,6 @@
+import APIManager from "../api-manager.js";
+import concertsDOMManager from "./concerts-searchResultsDomManager.js"
+import 
 let searchText;
 let genreId;
 const concertEventManager = {
@@ -46,12 +49,9 @@ const concertEventManager = {
                 genreId = getGenreInformation.getGenreId(searchText, genreObj);
                 // let loader = `<div class="boxLoading">Loading Searches...</div>`;
                 let loader = `
-                <div class="ui segment">
-                    <div class="ui active dimmer">
-                        <div class="ui text loader">Loading</div>
-                    </div>
-                    <p></p>
-                </div>
+                <div class="ui active inverted dimmer">
+                <div class="ui text loader">Loading</div>
+              </div>
                 `;
                 document.getElementById('search-results').innerHTML = loader;
                 const concertResults = APIManager.searchConcert(genreId, category, "&genreId=", 0);
@@ -99,12 +99,9 @@ const concertEventManager = {
                 alert("Input is empty!");
             } else {
                 let loader = `
-                <div class="ui segment">
-                    <div class="ui active dimmer">
-                        <div class="ui text loader">Loading</div>
-                    </div>
-                    <p></p>
-                </div>
+                <div class="ui active inverted dimmer">
+                <div class="ui text loader">Loading</div>
+              </div>
                 `;
                 document.getElementById('search-results').innerHTML = loader;
                 const concertResults = APIManager.searchConcert(searchText, "keyword", "&keyword=", 0);
@@ -124,12 +121,9 @@ const concertEventManager = {
     addPagesButtonEvents(buttonNode, j, topic) {
         buttonNode.addEventListener("click", (e) => {
             let loader = `
-                <div class="ui segment">
-                    <div class="ui active dimmer">
-                        <div class="ui text loader">Loading</div>
-                    </div>
-                    <p></p>
-                </div>
+                <div class="ui active inverted dimmer">
+                <div class="ui text loader">Loading</div>
+              </div>
                 `;
                 document.getElementById('search-results').innerHTML = loader;
             const noGenreMess = "There are no concerts of this genre at this time";
