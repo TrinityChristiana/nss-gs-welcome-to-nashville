@@ -62,18 +62,50 @@ const DOMManager = {
         const concertItinContainer = document.getElementById(`${category}__itin`);
         concertItinContainer.innerHTML = `${category}: ${name}`;
     },
-    renderCategoryPop(topic, categories){
-        console.log(topic);
+    renderCategoryPop(topic, categories) {
         const lowerTopic = topic.toLowerCase();
         const popUpSection = document.getElementById(`${lowerTopic}-category`);
-        console.log(popUpSection);
         let categoryHTML = "";
-        
+
         categories.forEach(element => {
             categoryHTML +=
-            `<a class="item" id="search-${lowerTopic}-${element.toLowerCase()}">${element}</a>`;  
+                `<a class="item" id="search-${lowerTopic}-${element.toLowerCase()}">${element}</a>`;
         });
         popUpSection.innerHTML = categoryHTML;
+    },
+    getSearchInputHTML(topic, category) {
+        const noDrop = ["concert-keyword"];
+        const lowTopic = topic.toLowerCase();
+        const lowCategory = category.toLowerCase();
+        document.getElementById("menu-title").innerText = `${topic}`;
+        if (noDrop.includes(`${topic.toLowerCase()}-${category.toLowerCase()}`)) {
+            return `
+                        <input class="prompt" id="search-input" type="text" placeholder="${category}">
+                        <i class="search link icon" id="search-icon"></i>
+            `
+        } else {
+            return `
+            <input class="prompt" id="search-input" type="text" list="${lowTopic}-${lowCategory}-options" placeholder="${category}">
+            <i class="search link icon" id="search-icon"></i>
+            <datalist id="${lowTopic}-${lowCategory}-options"></datalist>
+                    `
+        }
+        
+    },
+    makeOptions(topic, category, options){
+        const lowTopic = topic.toLowerCase();
+        const lowCategory = category.toLowerCase();
+        const dataList = document.getElementById(`${lowTopic}-${lowCategory}-options`);
+        
+        if(dataList !== null){
+            dataList.innerHTML = "";
+            console.log(options);
+            options.forEach(option => {
+                dataList.innerHTML += `<option value="${option.name}">`;
+            });
+        }
+
+
     }
 }
 

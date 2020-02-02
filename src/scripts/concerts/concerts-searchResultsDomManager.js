@@ -1,3 +1,4 @@
+import concertEventManager from './concerts-searchEventManager.js';
 const concertsDOMManager = {
     resultHTML(concert, i) {
         // const noteProp = "pleaseNote";
@@ -76,20 +77,8 @@ const concertsDOMManager = {
 
         }
 
-    },,
-    renderSearchInput(id) {
-        if (id == "concerts-genres-option") {
-            return `
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Genres" list="genre-options" id="search-concerts">
-                <datalist id="genre-options"></datalist>
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="search-concerts-btn">Search</button>
-            `
-        } else if (id == "concerts-keyword-option") {
-            return `
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Keyword" id="search-concerts-keyword">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="search-concerts-keyword-btn">Search</button>
-            `
-        }
-
-    }
+    },
+    
 };
+
+export default concertsDOMManager;

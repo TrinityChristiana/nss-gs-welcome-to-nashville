@@ -1,3 +1,5 @@
+import APIManager from "./concert-apiManager.js";
+
 const getGenreInformation = {
     getGenreId(genre, genresObj) {
         const searchText = genre;
@@ -10,7 +12,7 @@ const getGenreInformation = {
         return genreId;
     },
     getGenreList() {
-        APIManager.fetchGenreList()
+        return APIManager.fetchConcertGenreList()
             .then(data => {
                 let genreObj = [];
                 data._embedded.genres.forEach(element => {
@@ -19,9 +21,12 @@ const getGenreInformation = {
                         id: element.id
                     });
                 });
-                makeOptions.makeConcertOptions(genreObj);
+                return genreObj;
+                // makeOptions.makeConcertOptions(genreObj);
             });
 
-    }
+    },
+
 };
+export default getGenreInformation;
 

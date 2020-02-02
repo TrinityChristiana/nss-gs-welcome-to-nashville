@@ -1,7 +1,14 @@
+import inputManager from './inputManager.js';
+import DOMManager from './DOMManager.js';
+import apiManager from './api-manager.js';
+import concertsDOMManager from "./concerts/concerts-searchResultsDomManager.js"
+
 const eventManager = {
+    runIt() {
+        this.itinerarySaveEvent();
+    },
     itinerarySaveEvent() {
         document.getElementById("itinerary-btn").addEventListener("click", () => {
-            i++;
             const itineraryHTML = document.getElementById("itinerary");
             const itineraryTextwSpaces = itineraryHTML.textContent.split("\n");
             const itineraryText = itineraryTextwSpaces.filter(element => {
@@ -34,17 +41,45 @@ const eventManager = {
             DOMManager.toggleItenreary();
         });
     },
-    popUpEvent(topic, categories) {
-        console.log(categories);
-        categories.forEach(element => {
-            document.getElementById(`search-${topic.toLowerCase()}-${element.toLowerCase()}`).addEventListener("click", (e) => {
-                document.getElementById("search-input").placeholder = element;
+    popUpEvent(topic, categories, options) {
+        const searchBoxHTML = document.getElementById("searchBoxHTML");
+        categories.forEach(category => {
+            document.getElementById(`search-${topic.toLowerCase()}-${category.toLowerCase()}`).addEventListener("click", (e) => {
+                searchBoxHTML.innerHTML = DOMManager.getSearchInputHTML(topic, category);
+                DOMManager.makeOptions(topic, category, options);
                 document.getElementById("search-item").getElementsByTagName("div")[0].classList.remove("disabled");
-                document.getElementById("menu-title").innerText = `${topic}`;
+                this.searchEvent(options);
+
             });
         });
 
+    },
+    searchEvent(options) {
+        document.getElementById("search-icon").addEventListener("click", () => {
+            const inputData = inputManager.runIt(options);
+            const searchText = inputData.input;
+            const category = inputData.category;
+            apiManager.searchConcert(inputData.id, category, "&genreId=", 0)
+                .then(data => {
+                    if ("_embedded" in data) {
+                        concertsDOMManager.renderResults(data._embedded.events, data.page.totalPages, category, searchText);
+
+                    } else {
+                        concertsDOMManager.renderResults(`There are no concerts of the genre "${searchText}" at this time`);
+                    }
+                });
+
+        });
+
+        document.getElementById("search-input").addEventListener("keyup", (e) => {
+            if (e.keyCode == 13) {
+                const inputData = inputManager.runIt(options);
+
+
+            }
+        });
     }
+
 }
 
 export default eventManager;

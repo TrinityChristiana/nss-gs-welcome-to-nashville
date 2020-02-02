@@ -98,7 +98,14 @@ const concertEventManager = {
             if (validateData.isEmpty(searchText)) {
                 alert("Input is empty!");
             } else {
-                let loader = `<div class="boxLoading">Loading Searches...</div>`;
+                let loader = `
+                <div class="ui segment">
+                    <div class="ui active dimmer">
+                        <div class="ui text loader">Loading</div>
+                    </div>
+                    <p></p>
+                </div>
+                `;
                 document.getElementById('search-results').innerHTML = loader;
                 const concertResults = APIManager.searchConcert(searchText, "keyword", "&keyword=", 0);
                 concertResults.then(data => {
@@ -116,8 +123,15 @@ const concertEventManager = {
     // Adds Events to Page buttons individually
     addPagesButtonEvents(buttonNode, j, topic) {
         buttonNode.addEventListener("click", (e) => {
-            let loader = `<div class="boxLoading">Loading Searches...</div>`;
-            document.getElementById('search-results').innerHTML = loader;
+            let loader = `
+                <div class="ui segment">
+                    <div class="ui active dimmer">
+                        <div class="ui text loader">Loading</div>
+                    </div>
+                    <p></p>
+                </div>
+                `;
+                document.getElementById('search-results').innerHTML = loader;
             const noGenreMess = "There are no concerts of this genre at this time";
             if (topic == "genre") {
                 APIManager.searchConcert(genreId, "topic", `&${topic}Id=`, j)
@@ -150,3 +164,4 @@ const concertEventManager = {
 };
 
 concertEventManager.welcomeNashvilleEvent()
+export default concertEventManager;

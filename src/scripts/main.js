@@ -4,8 +4,9 @@ import artsJS from "./arts/arts.js";
 import parksJS from './parks/parks.js';
 import restaurantJS from './restaurants/restaurants.js'
 
-eventManager.itinerarySaveEvent();
+
 concertJS.runIt();
+eventManager.runIt();
 artsJS.runIt();
 parksJS.runIt();
 restaurantJS.runIt();
