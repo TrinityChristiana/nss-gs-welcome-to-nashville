@@ -12,92 +12,52 @@
 </head>
 
 <body>
-    <div class="ui pointing menu">
+    <div class="ui stackable pointing menu">
         <div class="item">
             <a class="" href="#" id="welcome">Welcome to Nashville</a>
         </div>
-        <li class="item active">
+        <li class="item">
             <a class="nav-link" href="#" id="view-itineraries-link">View Itineraries</a>
         </li>
         <div class="right menu">
             <!-- id="search-drop" -->
             <a class="browse item">
-                Browse
+                <div id="menu-title">Pick Topic</div>
                 <i class="dropdown icon"></i>
             </a>
-            <div class="ui fluid popup top right transition hidden"
-                style="top: 100px; left: 100px; bottom: 100px; right: 100px; width: 100px;">
+            <div class="ui flowing popup top left transition hidden"
+                style="min-width:auto; top: auto; left: auto; bottom: auto; right: auto; width: auto;">
                 <div class="ui four column relaxed divided grid">
                     <div class="column">
                         <h4 class="ui header">Concerts</h4>
-                        <div class="ui link list">
-                            <a class="item" id="search-concerts-link">Search All</a>
-                            <a class="item">Linen</a>
-                            <a class="item">Cotton</a>
-                            <a class="item">Viscose</a>
-                        </div>
+                        <div id="concert-category" class="ui link list"></div>
                     </div>
                     <div class="column">
                         <h4 class="ui header">Parks</h4>
-                        <div class="ui link list">
-                            <a class="item"id="search-parks-link" >Small</a>
-                            <a class="item">Medium</a>
-                            <a class="item">Large</a>
-                            <a class="item">Plus Sizes</a>
-                        </div>
+                        <div id="park-category" class="ui link list"></div>
                     </div>
                     <div class="column">
                         <h4 class="ui header">Restaurants</h4>
-                        <div class="ui link list">
-                            <a class="item" id="search-restaurants-link">Neutrals</a>
-                            <a class="item">Brights</a>
-                            <a class="item">Pastels</a>
-                        </div>
+                        <div id="restaurant-category" class="ui link list"> </div>
                     </div>
                     <div class="column">
                         <h4 class="ui header">Arts</h4>
-                        <div class="ui link list">
-                            <a class="item" id="search-arts-link">Knitwear</a>
-                            <a class="item">Outerwear</a>
-                            <a class="item">Pants</a>
-                            <a class="item">Shoes</a>
-                        </div>
+                        <div id="art-category" class="ui link list"></div>
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <form class="form-inline my-2 my-lg-0" id="navbar-search">
-
-                    <div class="ui transparent icon input" id="search-input">
-                        <input type="text" placeholder="Search...">
+            <div class="item" id="search-item">
+                <div class="ui disabled transparent icon search">
+                    <div class="ui transparent icon input">
+                        <input class="prompt" id="search-input" type="text" placeholder="Choose Topic to Search">
                         <i class="search link icon"></i>
                     </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="ui segment">
-        <p></p>
-    </div>
-    <div class="ui basic modal">
-        <div class="ui icon header">
-            <i class="archive icon"></i>
-            Archive Old Messages
-        </div>
-        <div class="content">
-            <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-        </div>
-        <div class="actions">
-            <div class="ui red basic cancel inverted button">
-                <i class="remove icon"></i>
-                No
-            </div>
-            <div class="ui green ok inverted button">
-                <i class="checkmark icon"></i>
-                Yes
-            </div>
-        </div>
-    </div>
+
     <section id="search">
         <div id="formSearch">
             <div id="search-parks">
@@ -120,34 +80,40 @@
 
         </div>
     </section>
+    <div class="ui segment" style="width:70%;">
+        <div class="ui right dividing rail" style="width:40%; margin:auto; padding:0;">
+            <div class="ui segment">
+                <h2 id="itinerary-title">Itinerary</h2>
+                <section id="itinerary">
+                    <div id="park__itin">Park: No park saved in itinerary</div>
+                    <div id="concert__itin">Concert: No concert saved in itinerary</div>
+                    <div id="restaurant__itin">Restaurant: No restaurant saved in itinerary</div>
+                    <div id="arts__itin">Public Arts Collection: No art collection saved in itinerary</div>
+                    <button type="submit" id="itinerary-btn"> Save Itinerary</button>
+                </section>
+            </div>
+        </div>
+        <h2 id="search-result-title">Search Results</h2>
 
+        <section id="search-results">
+            <!-- 
+            <section id="searching-for">
+    
+            </section>
+    
+            <section id="pagination">
+    
+            </section> -->
+
+        </section>
+    </div>
     <div id="search-header">
 
     </div>
 
-    <h2 id="search-result-title">Search Results</h2>
 
-    <section id="search-results">
-        <!-- 
-        <section id="searching-for">
 
-        </section>
 
-        <section id="pagination">
-
-        </section> -->
-
-    </section>
-
-    <h2 id="itinerary-title">Itinerary</h2>
-    <section id="itinerary">
-        <div id="park__itin">Park: No park saved in itinerary</div>
-        <div id="concert__itin">Concert: No concert saved in itinerary</div>
-        <div id="restaurant__itin">Restaurant: No restaurant saved in itinerary</div>
-        <div id="arts__itin">Public Arts Collection: No art collection saved in itinerary</div>
-        <button type="submit" id="itinerary-btn"> Save Itinerary</button>
-
-    </section>
     <section id="all-itineraries">
 
     </section>
@@ -174,12 +140,12 @@
 
 
     <!-- Concert Scripts -->
-    <script src="scripts/concerts/concert-apiManager.js"></script>
+    <!-- <script src="scripts/concerts/concert-apiManager.js"></script>
     <script src="scripts/concerts/concert-genres.js"></script>
     <script src="scripts/concerts/concerts-searchEventManager.js"></script>
     <script src="scripts/concerts/concert-validate-input.js"></script>
     <script src="scripts/concerts/concerts-searchResultsDomManager.js"></script>
-    <script src="scripts/concerts/concert-make-genre-options.js"></script>
+    <script src="scripts/concerts/concert-make-genre-options.js"></script> -->
 
     <!-- ARTS API SCRIPTS -->
     <script src="./scripts/arts/arts_apiManager.js"></script>
@@ -198,10 +164,12 @@
     <script src="./scripts/parks/parksitin.js"></script>
     <!-- END PARKS API SCRIPTS -->
 
-    <script src="./scripts/DOMManager.js"></script>
-    <script src="./scripts/eventManager.js"></script>
-    <script src="./scripts/api-manager.js"></script>
-    <script src="./scripts/main.js"></script>
+    <!-- <script type="module" src="./scripts/DOMManager.js"></script>
+    <script type="module" src="./scripts/eventManager.js"></script>
+    <script type="module" src="./scripts/api-manager.js"></script> -->
+
+    <!-- <script src="scripts/concerts/concerts.js"></script>  -->
+    <script type="module" src="./scripts/main.js"></script>
 
 </body>
 

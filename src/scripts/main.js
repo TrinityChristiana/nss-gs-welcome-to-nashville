@@ -1,18 +1,23 @@
-concertEventManager.runIt();
+import eventManager from './eventManager.js';
+import concertJS from "./concerts/concerts.js";
+import artsJS from "./arts/arts.js";
+import parksJS from './parks/parks.js';
+import restaurantJS from './restaurants/restaurants.js'
 
-let i = 0;
 eventManager.itinerarySaveEvent();
+concertJS.runIt();
+artsJS.runIt();
+parksJS.runIt();
+restaurantJS.runIt();
 
-parksHtmlToDom();
-
-artsHtmlToDomFunction();
 
 // $('.ui.basic.modal').modal('show');
 
 $('.menu .browse')
     .popup({
-        // inline: true,
-        hoverable: true,
+        inline: true,
+        // hoverable: true,
+        on: "click",
         position: 'bottom right',
         delay: {
             show: 300,

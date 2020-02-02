@@ -1,3 +1,8 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
 #search-results {
     height: 400px;
     padding: 20px;
@@ -5,7 +10,8 @@
     box-shadow: inset 0px 0px 5px 1px rgb(182, 181, 181);
 }
 
-#itinerary, #formSearch {
+#itinerary,
+#formSearch {
     font-size: 20px;
 }
 
@@ -25,6 +31,7 @@
     height: 200px;
 
 }
+
 .concert-img {
     width: 50%;
     overflow: hidden;
@@ -45,7 +52,5 @@
 }
 
 .hidden {
-    display:none;
+    display: none;
 }
-
-

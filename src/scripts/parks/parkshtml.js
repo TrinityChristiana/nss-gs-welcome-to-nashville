@@ -52,4 +52,6 @@ const parksHtmlToDom = () => {
     parks_searchEventManager.addSearchClickEventListener();
 }
 
+parksHtmlToDom();
+
 

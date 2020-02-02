@@ -15,7 +15,7 @@ const DOMManager = {
             document.getElementById("searching-for").classList.add("hidden");
         }
 
-        
+
 
         const allIten = document.getElementById("all-itineraries");
 
@@ -57,5 +57,24 @@ const DOMManager = {
         const allIten = document.getElementById("all-itineraries");
         allIten.innerHTML = "";
 
+    },
+    renderItinerary(name, category) {
+        const concertItinContainer = document.getElementById(`${category}__itin`);
+        concertItinContainer.innerHTML = `${category}: ${name}`;
+    },
+    renderCategoryPop(topic, categories){
+        console.log(topic);
+        const lowerTopic = topic.toLowerCase();
+        const popUpSection = document.getElementById(`${lowerTopic}-category`);
+        console.log(popUpSection);
+        let categoryHTML = "";
+        
+        categories.forEach(element => {
+            categoryHTML +=
+            `<a class="item" id="search-${lowerTopic}-${element.toLowerCase()}">${element}</a>`;  
+        });
+        popUpSection.innerHTML = categoryHTML;
     }
 }
+
+export default DOMManager;

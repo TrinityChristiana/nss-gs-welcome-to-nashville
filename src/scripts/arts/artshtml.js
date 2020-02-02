@@ -35,3 +35,5 @@ const artsHtmlToDomFunction = () => {
 }
 
 
+artsHtmlToDomFunction();
+

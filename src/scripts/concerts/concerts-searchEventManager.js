@@ -1,40 +1,34 @@
 let searchText;
 let genreId;
 const concertEventManager = {
-    runIt() {
-        this.navbarEvent("concerts", true);
-    },
     // Adds event to search-link navbar link
-    navbarEvent(category, needsDropdown) {
+    navbarEvent(category) {
         document.getElementById(`search-${category}-link`).addEventListener("click", () => {
             const searchForm = document.getElementById("formSearch").classList.add("hidden");
             const navbarDrop = document.getElementById("search-drop");
 
-            // searchForm.innerHTML = "";
             document.getElementById("search-results").innerHTML = "";
             const nameArray = ["Genres", "Keyword"];
-            if (needsDropdown) {
-                concertsDOMManager.renderDropDown(navbarDrop, nameArray, "concerts");
-            }
 
             DOMManager.untoggleItenreary();
         });
     },
-    dropEvent(id) {
-        document.getElementById(id).addEventListener("click", () => {
-            const searchInput = document.getElementById("search-input");
-            searchInput.innerHTML = concertsDOMManager.renderSearchInput(id);
-            if (id == "concerts-genres-option") {
-                this.addEnterEvent("concerts");
-                getGenreInformation.getGenreList();
-            } else {
+    // dropEvent(id) {
+    //     document.getElementById(id).addEventListener("click", () => {
+    //         const searchInput = document.getElementById("search-input");
+    //         searchInput.innerHTML = concertsDOMManager.renderSearchInput(id);
+    //         if (id == "concerts-genres-option") {
+    //             this.addEnterEvent("concerts");
+    //             getGenreInformation.getGenreList();
+    //         } else {
 
-                this.addEnterEvent("concerts-keyword");
-                this.addKeywordButtonEvent();
-            }
-            this.runIt();
-        });
-    },
+    //             this.addEnterEvent("concerts-keyword");
+    //             this.addKeywordButtonEvent();
+    //         }
+    //         this.navbarEvent("concerts");
+
+    //     });
+    // },
     // Adds event to genre search button
     addButtonEventListener(genreObj) {
         const concertBtn = document.getElementById("search-concerts-btn");
@@ -50,7 +44,15 @@ const concertEventManager = {
             } else if (isGenre) {
                 const category = "genre";
                 genreId = getGenreInformation.getGenreId(searchText, genreObj);
-                let loader = `<div class="boxLoading">Loading Searches...</div>`;
+                // let loader = `<div class="boxLoading">Loading Searches...</div>`;
+                let loader = `
+                <div class="ui segment">
+                    <div class="ui active dimmer">
+                        <div class="ui text loader">Loading</div>
+                    </div>
+                    <p></p>
+                </div>
+                `;
                 document.getElementById('search-results').innerHTML = loader;
                 const concertResults = APIManager.searchConcert(genreId, category, "&genreId=", 0);
                 concertResults.then(data => {
@@ -83,7 +85,7 @@ const concertEventManager = {
     addSaveButtonEvent(id) {
         const saveButtons = document.getElementById(`concert-btn-${id}`);
         saveButtons.addEventListener("click", () => {
-            concertsDOMManager.renderItinerary(document.getElementById(`concert-name-${id}`).innerHTML);
+            DOMManager.renderItinerary(document.getElementById(`concert-name-${id}`).innerHTML, "concert");
         });
     },
     // Adds event to keyword search button

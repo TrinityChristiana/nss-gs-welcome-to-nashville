@@ -29,10 +29,22 @@ const eventManager = {
             return itineraryArray;
         });
     },
-    itineraryTabEvent(){
+    itineraryTabEvent() {
         document.getElementById("view-itineraries-link").addEventListener("click", () => {
             DOMManager.toggleItenreary();
-        })
+        });
+    },
+    popUpEvent(topic, categories) {
+        console.log(categories);
+        categories.forEach(element => {
+            document.getElementById(`search-${topic.toLowerCase()}-${element.toLowerCase()}`).addEventListener("click", (e) => {
+                document.getElementById("search-input").placeholder = element;
+                document.getElementById("search-item").getElementsByTagName("div")[0].classList.remove("disabled");
+                document.getElementById("menu-title").innerText = `${topic}`;
+            });
+        });
+
     }
 }
-eventManager.itineraryTabEvent();
+
+export default eventManager;

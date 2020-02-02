@@ -76,62 +76,7 @@ const concertsDOMManager = {
 
         }
 
-    },
-    renderItinerary(name) {
-        const concertItinContainer = document.getElementById("concert__itin");
-        concertItinContainer.innerHTML = `Concert: ${name}`;
-    },
-    renderSearch(searchForm) {
-        searchForm.innerHTML = `
-         <div>
-            <label for="search-concerts">Genres</label>
-            <input list="genre-options" type="list" id="search-concerts">
-            <datalist id="genre-options"></datalist>
-            <button type="submit" id="search-concerts-btn">Submit</button>
-        </div>
-        <div>
-            <label for="search-concerts-keyword">Keyword</label>
-            <input type="text" id="search-concerts-keyword">
-            <button type="submit" id="search-concerts-keyword-btn">Submit</button>
-        </div>
-        `;
-    },
-    renderDropDown(navbarDrop, nameArray, category) {
-        // const dropHTML = document.createElement("section");
-        navbarDrop.innerHTML = `
-        <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:azure">
-            Pick Search Parameter
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="drop-options">
-        </div>
-    </div>
-        `;
-        // navbarSearch.prepend(dropHTML);
-
-        const dropOptions = document.getElementById("drop-options");
-
-        let idArray = [];
-
-        nameArray.forEach(element => {
-            const id = `${category}-${element.toLowerCase()}-option`;
-            idArray.push(id);
-            dropOptions.innerHTML +=
-                `<a class="dropdown-item" id="${id}">${element}</a>`;
-
-
-        });
-
-
-        idArray.forEach(element => {
-            concertEventManager.dropEvent(element);
-            // console.log(document.getElementById(`${element}`));
-
-
-        })
-
-    },
+    },,
     renderSearchInput(id) {
         if (id == "concerts-genres-option") {
             return `
