@@ -13,6 +13,7 @@ const apiKeyCheck = {
         .modal({
             onApprove : function() {
                 if( $('.ui.form').form('is valid')) {
+                    apiKeyCheck.getInputValues();
                     return true;
                 } else {
                     return false;
@@ -43,20 +44,20 @@ const apiKeyCheck = {
                             concertKey: {
                                 identifier: 'concertKey',
                                 rules: [{
-                                    type: `empty`,
-                                    prompt: `Please enter correct concertkey`
+                                    type: 'minLength[32]',
+                                    prompt: `Not enough charactors for concert key`
                                 }]
                             },
                             restaurantKey: {
                                 identifier: 'restaurantKey',
                                 rules: [{
-                                    type: `empty`,
-                                    prompt: `Please enter restaurant key`
+                                    type: 'minLength[32]',
+                                    prompt: `Not enough charactors for restaurant key`
                                 }]
                             }
                         }
                     });
-                    return apiKeyCheck.getInputValues();
+                    
             });
     }
 
