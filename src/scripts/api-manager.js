@@ -16,7 +16,6 @@ const apiManager = {
     },
     searchConcert(searchCriteria, category, key, page) {
         const url = concertUrl + `${key}${searchCriteria}&page=${page}`;
-        console.log(url);
         return fetch(url)
             .then(response => response.json())
             .catch((error) => {

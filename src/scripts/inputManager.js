@@ -22,7 +22,7 @@ const inputManager = {
 
     },
     getSearchTopic() {
-        return document.getElementById("menu-title").innerText;
+        return document.getElementsByClassName("menu-title")[0].innerText;
     },
     getSearchCategory() {
         return document.getElementById("search-input").placeholder;

@@ -64,20 +64,29 @@ const DOMManager = {
     },
     renderCategoryPop(topic, categories) {
         const lowerTopic = topic.toLowerCase();
-        const popUpSection = document.getElementById(`${lowerTopic}-category`);
+        const popUpSection = document.getElementsByClassName(`${lowerTopic}-category`);
         let categoryHTML = "";
 
         categories.forEach(element => {
             categoryHTML +=
-                `<a class="item" id="search-${lowerTopic}-${element.toLowerCase()}">${element}</a>`;
+            `<a class="item search-${lowerTopic}-${element.toLowerCase()}">${element}</a>`;
         });
-        popUpSection.innerHTML = categoryHTML;
+        for (var i = 0; i < popUpSection.length; i++) {
+            const element = popUpSection[i];
+            element.innerHTML = categoryHTML;
+        }
     },
     getSearchInputHTML(topic, category) {
         const noDrop = ["concert-keyword"];
         const lowTopic = topic.toLowerCase();
         const lowCategory = category.toLowerCase();
-        document.getElementById("menu-title").innerText = `${topic}`;
+        const titleMenu = document.getElementsByClassName("menu-title");
+        for (let index = 0; index < titleMenu.length; index++) {
+            const element = titleMenu[index];
+            element.innerText = `${topic}`;
+        }
+        
+        
         if (noDrop.includes(`${topic.toLowerCase()}-${category.toLowerCase()}`)) {
             return `
                         <input class="prompt" id="search-input" type="text" placeholder="${category}">
@@ -96,10 +105,8 @@ const DOMManager = {
         const lowTopic = topic.toLowerCase();
         const lowCategory = category.toLowerCase();
         const dataList = document.getElementById(`${lowTopic}-${lowCategory}-options`);
-        
         if(dataList !== null){
             dataList.innerHTML = "";
-            console.log(options);
             options.forEach(option => {
                 dataList.innerHTML += `<option value="${option.name}">`;
             });

@@ -19,34 +19,67 @@
         <li class="item">
             <a class="nav-link" href="#" id="view-itineraries-link">View Itineraries</a>
         </li>
-        
+
         <div class="right menu">
-            <!-- id="search-drop" -->
-            <a class="browse item">
-                <div id="menu-title">Pick Topic</div>
-                <i class="dropdown icon"></i>
-            </a>
-            <div class="ui flowing popup top left transition hidden"
-                style="min-width:auto; top: auto; left: auto; bottom: auto; right: auto; width: auto;">
-                <div class="ui four column relaxed divided grid">
-                    <div class="column">
-                        <h4 class="ui header">Concerts</h4>
-                        <div id="concert-category" class="ui link list"></div>
-                    </div>
-                    <div class="column">
-                        <h4 class="ui header">Parks</h4>
-                        <div id="park-category" class="ui link list"></div>
-                    </div>
-                    <div class="column">
-                        <h4 class="ui header">Restaurants</h4>
-                        <div id="restaurant-category" class="ui link list"> </div>
-                    </div>
-                    <div class="column">
-                        <h4 class="ui header">Arts</h4>
-                        <div id="art-category" class="ui link list"></div>
+
+            <div id="mobile">
+                <div class="ui fluid dropdown item">
+                    <span class="text menu-title">Pick Topic</span>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Concerts</span>
+                            <div class="menu concert-category"></div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Parks</span>
+                            <div class="menu park-category"></div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Concerts</span>
+                            <div class="menu restaurant-category"></div>
+                        </div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            <span class="text">Arts</span>
+                            <div class="menu art-category"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- id="search-drop" -->
+            <div id="desktop">
+                <a class="browse item">
+                    <div class="menu-title">Pick Topic</div>
+                    <i class="dropdown icon"></i>
+                </a>
+                <div class="ui flowing popup top left transition hidden"
+                    style="min-width:auto; top: auto; left: auto; bottom: auto; right: auto; width: auto;">
+                    <div class="ui four column relaxed divided grid">
+                        <div class="column">
+                            <h4 class="ui header">Concerts</h4>
+                            <div id="" class="ui link list concert-category"></div>
+                        </div>
+                        <div class="column">
+                            <h4 class="ui header">Parks</h4>
+                            <div id="" class="ui link list park-category"></div>
+                        </div>
+                        <div class="column">
+                            <h4 class="ui header">Restaurants</h4>
+                            <div id="" class="ui link list restaurant-category"> </div>
+                        </div>
+                        <div class="column">
+                            <h4 class="ui header">Arts</h4>
+                            <div id="" class="ui link list art-category"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="item" id="search-item">
                 <div class="ui disabled transparent icon search">
                     <div class="ui transparent icon input" id="searchBoxHTML">
@@ -55,9 +88,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-
 
     <section id="search">
         <div id="formSearch">
@@ -98,27 +131,25 @@
 
         <section id="search-results">
             <!-- 
-            <section id="searching-for">
-    
-            </section>
-    
-            <section id="pagination">
-    
-            </section> -->
+                <section id="searching-for">
+        
+                </section>
+        
+                <section id="pagination">
+        
+                </section> -->
 
         </section>
     </div>
     <div id="search-header">
 
     </div>
-
-
-
-
     <section id="all-itineraries">
 
     </section>
     <footer></footer>
+
+
     <!-- Semantic UI -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

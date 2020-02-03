@@ -25,3 +25,24 @@ $('.menu .browse')
             hide: 800
         }
     });
+
+
+$('.ui.dropdown')
+    .dropdown({
+        allowCategorySelection: true
+    });
+
+const myFunction = (x) => {
+    if (x.matches) { // If media query matches
+        document.getElementById("desktop").style = "display: none";
+        document.getElementById("mobile").style = "display: block";
+    } else {
+        document.getElementById("mobile").style = "display: none";
+        document.getElementById("desktop").style = "display: block";
+
+    }
+}
+
+var x = window.matchMedia("(max-width: 775px)")
+myFunction(x); // Call listener function at run time
+x.addListener(myFunction); // Attach listener function on state changes

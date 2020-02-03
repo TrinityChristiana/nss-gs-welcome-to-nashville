@@ -44,13 +44,19 @@ const eventManager = {
     popUpEvent(topic, categories, options) {
         const searchBoxHTML = document.getElementById("searchBoxHTML");
         categories.forEach(category => {
-            document.getElementById(`search-${topic.toLowerCase()}-${category.toLowerCase()}`).addEventListener("click", (e) => {
-                searchBoxHTML.innerHTML = DOMManager.getSearchInputHTML(topic, category);
-                DOMManager.makeOptions(topic, category, options);
-                document.getElementById("search-item").getElementsByTagName("div")[0].classList.remove("disabled");
-                this.searchEvent(options);
 
-            });
+            
+            const searchTopicCategory = document.getElementsByClassName(`search-${topic.toLowerCase()}-${category.toLowerCase()}`);
+            for (let index = 0; index < searchTopicCategory.length; index++) {
+                const element = searchTopicCategory[index];
+                element.addEventListener("click", (e) => {
+                    searchBoxHTML.innerHTML = DOMManager.getSearchInputHTML(topic, category);
+                    DOMManager.makeOptions(topic, category, options);
+                    document.getElementById("search-item").getElementsByTagName("div")[0].classList.remove("disabled");
+                    this.searchEvent(options);
+    
+                });    
+            }
         });
 
     },
