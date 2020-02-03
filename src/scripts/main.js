@@ -43,6 +43,6 @@ const myFunction = (x) => {
     }
 }
 
-var x = window.matchMedia("(max-width: 775px)")
+var x = window.matchMedia("(max-width: 775px)");
 myFunction(x); // Call listener function at run time
 x.addListener(myFunction); // Attach listener function on state changes
