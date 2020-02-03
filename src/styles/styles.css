@@ -61,13 +61,13 @@
     }
 
     #mobile {
-        display: block;
+        display: inline;
     }
 }
 
 @media only screen and (min-width: 776px) {
     #desktop {
-        display: block;
+        display: inline;
     }
 
     #mobile {
