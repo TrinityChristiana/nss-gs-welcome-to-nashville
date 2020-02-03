@@ -54,3 +54,35 @@
 .hidden {
     display: none;
 }
+
+@media only screen and (max-width: 775px) {
+    #desktop {
+        display: none;
+    }
+
+    #mobile {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 776px) {
+    #desktop {
+        display: block;
+    }
+
+    #mobile {
+        display: none;
+    }
+}
+
+/* const myFunction = (x) => {
+    document.getElementById("search-results").innerText = `${x} is your screen size`;
+    if (x.matches) { // If media query matches
+        document.getElementById("desktop").style = "display: none";
+        document.getElementById("mobile").style = "display: block";
+    } else {
+        document.getElementById("mobile").style = "display: none";
+        document.getElementById("desktop").style = "display: block";
+        
+    }
+} */
