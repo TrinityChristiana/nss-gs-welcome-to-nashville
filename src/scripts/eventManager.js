@@ -41,7 +41,7 @@ const eventManager = {
             DOMManager.toggleItenreary();
         });
     },
-    popUpEvent(topic, categories, options) {
+    popUpEvent(topic, categories, options, concertKey) {
         const searchBoxHTML = document.getElementById("searchBoxHTML");
         categories.forEach(category => {
 
@@ -53,14 +53,14 @@ const eventManager = {
                     searchBoxHTML.innerHTML = DOMManager.getSearchInputHTML(topic, category);
                     DOMManager.makeOptions(topic, category, options);
                     document.getElementById("search-item").getElementsByTagName("div")[0].classList.remove("disabled");
-                    this.searchEvent(options);
+                    this.searchEvent(options, concertKey);
     
                 });    
             }
         });
 
     },
-    searchEvent(options) {
+    searchEvent(options, concertKey) {
         document.getElementById("search-icon").addEventListener("click", () => {
             const inputData = inputManager.runIt(options);
             const searchText = inputData.input;
@@ -71,7 +71,7 @@ const eventManager = {
               </div>
                 `;
                 document.getElementById('search-results').innerHTML = loader;
-            apiManager.searchConcert(inputData.id, category, "&genreId=", 0)
+            apiManager.searchConcert(inputData.id, category, "&genreId=", 0, concertKey)
                 .then(data => {
                     if ("_embedded" in data) {
                         concertsDOMManager.renderResults(data._embedded.events, data.page.totalPages, category, searchText);

@@ -11,8 +11,9 @@ const getGenreInformation = {
         });
         return genreId;
     },
-    getGenreList() {
-        return APIManager.fetchConcertGenreList()
+    getGenreList(concertKey) {
+        console.log(concertKey);
+        return APIManager.fetchConcertGenreList(concertKey)
             .then(data => {
                 let genreObj = [];
                 data._embedded.genres.forEach(element => {

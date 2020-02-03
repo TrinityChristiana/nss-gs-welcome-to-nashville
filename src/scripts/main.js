@@ -2,15 +2,16 @@ import eventManager from './eventManager.js';
 import concertJS from "./concerts/concerts.js";
 import artsJS from "./arts/arts.js";
 import parksJS from './parks/parks.js';
-import restaurantJS from './restaurants/restaurants.js'
+import restaurantJS from './restaurants/restaurants.js';
+import apiKeyCheck from "./apiKeyCheck.js"
 
 
-concertJS.runIt();
+// concertJS.runIt();
 eventManager.runIt();
 artsJS.runIt();
 parksJS.runIt();
 restaurantJS.runIt();
-
+apiKeyCheck.runIt()
 
 // $('.ui.basic.modal').modal('show');
 

@@ -1,4 +1,5 @@
-const concertUrl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${concertKey}&unit=miles&locale=*&size=10&city=Nashville&countryCode=US&stateCode=TN&segmentName=Music&preferredCountry=us`;
+// const concertUrl = `https://app.ticketmaster.com/discovery/v2/events?apikey=${concertKey}&unit=miles&locale=*&size=10&city=Nashville&countryCode=US&stateCode=TN&segmentName=Music&preferredCountry=us`;
+const concertUrl = `https://app.ticketmaster.com/discovery/v2/events?unit=miles&locale=*&size=10&city=Nashville&countryCode=US&stateCode=TN&segmentName=Music&preferredCountry=us`;
 
 const apiManager = {
     getItenerary(){
@@ -14,8 +15,8 @@ const apiManager = {
             body: JSON.stringify(iteneraryObj)
         });
     },
-    searchConcert(searchCriteria, category, key, page) {
-        const url = concertUrl + `${key}${searchCriteria}&page=${page}`;
+    searchConcert(searchCriteria, category, key, page, concertKey) {
+        const url = concertUrl + `${key}${searchCriteria}&page=${page}&apikey=${concertKey}`;
         return fetch(url)
             .then(response => response.json())
             .catch((error) => {
