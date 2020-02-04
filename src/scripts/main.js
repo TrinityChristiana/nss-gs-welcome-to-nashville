@@ -4,14 +4,29 @@ import concertJS from "./concerts/concerts.js";
 import artsJS from "./arts/arts.js";
 import parksJS from './parks/parks.js';
 import restaurantJS from './restaurants/restaurants.js';
+
 import apiKeyCheck from "./apiKeyCheck.js";
-// import holdKeys from "../../api/apiKeys.js";
 import restApiManager from "./restaurants/restaurantsAPIManager.js";
 
+if (typeof CONCERT_KEY == "undefined") {
+    console.log("object");
+    let promise = import("../../api/apiKeys.js");
+    promise.then(data => console.log(data));
+    // .then((something) => {
+    //    console.log(something.something);
+    // });
+}
 
-console.log(CONCERT_KEY);
-// let concertKey = holdKeys.concertKey();
-let  restaurantKey = holdKeys.restaurantKey();
+// if(){
+
+
+//     let concertKey = holdKeys.concertKey(); 
+//     let  restaurantKey = holdKeys.restaurantKey();
+//     concertJS.runIt(concertKey);
+//     restApiManager.fetchData(restaurantKey);
+//     console.log("its null");
+// }
+
 // concertJS.runIt();
 eventManager.runIt();
 artsJS.runIt();
