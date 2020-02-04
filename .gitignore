@@ -3,3 +3,4 @@
 api/database.json
 
 api/apiKeys.js
+.env
