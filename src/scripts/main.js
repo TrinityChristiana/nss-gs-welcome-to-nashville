@@ -9,7 +9,7 @@ import apiKeyCheck from "./apiKeyCheck.js";
 import restApiManager from "./restaurants/restaurantsAPIManager.js";
 
 
-console.log(process.env);
+console.log(CONCERT_KEY);
 // let concertKey = holdKeys.concertKey();
 let  restaurantKey = holdKeys.restaurantKey();
 // concertJS.runIt();
