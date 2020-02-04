@@ -6,6 +6,7 @@ import concertsDOMManager from "./concerts/concerts-searchResultsDomManager.js"
 const eventManager = {
     runIt() {
         this.itinerarySaveEvent();
+        this.itineraryTabEvent();
     },
     itinerarySaveEvent() {
         document.getElementById("itinerary-btn").addEventListener("click", () => {

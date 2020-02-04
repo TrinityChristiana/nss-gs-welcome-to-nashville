@@ -12,7 +12,6 @@ const getGenreInformation = {
         return genreId;
     },
     getGenreList(concertKey) {
-        console.log(concertKey);
         return APIManager.fetchConcertGenreList(concertKey)
             .then(data => {
                 let genreObj = [];

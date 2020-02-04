@@ -3,15 +3,21 @@ import concertJS from "./concerts/concerts.js";
 import artsJS from "./arts/arts.js";
 import parksJS from './parks/parks.js';
 import restaurantJS from './restaurants/restaurants.js';
-import apiKeyCheck from "./apiKeyCheck.js"
+import apiKeyCheck from "./apiKeyCheck.js";
+import holdKeys from "../../api/apiKeys.js";
+import restApiManager from "./restaurants/restaurantsAPIManager.js";
 
-
+console.log(concertKey);
+// let concertKey = holdKeys.concertKey();
+let  restaurantKey = holdKeys.restaurantKey();
 // concertJS.runIt();
 eventManager.runIt();
 artsJS.runIt();
 parksJS.runIt();
 restaurantJS.runIt();
-apiKeyCheck.runIt()
+// apiKeyCheck.runIt();
+concertJS.runIt(concertKey);
+restApiManager.fetchData(restaurantKey);
 
 // $('.ui.basic.modal').modal('show');
 
